@@ -11,7 +11,7 @@ var jshint = {
 	},
     Conway:{
         src:[
-            'assets/js/**/*.js'
+            'source/js/**/*.js'
         ]
     },
 	gruntfiles:{

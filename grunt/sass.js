@@ -6,7 +6,7 @@ var sass = {
             sourceMap: true
         },
         files: {
-            'assets/css/<%= pkg.name %>.css' : 'assets/scss/<%= pkg.name %>.scss',
+            'source/css/<%= pkg.name %>.css' : 'source/scss/<%= pkg.name %>.scss',
         }
     },
     production: {
@@ -15,7 +15,7 @@ var sass = {
             outputStyle:'compressed'
         },
         files: {
-          'assets/css/<%= pkg.name %>.min.css' : 'assets/scss/<%= pkg.name %>.min.scss',
+          'source/css/<%= pkg.name %>.min.css' : 'source/scss/<%= pkg.name %>.min.scss',
         }
     }
 };
