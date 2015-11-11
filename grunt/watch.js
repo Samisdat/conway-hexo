@@ -3,7 +3,7 @@
 var watch = {
 	sass: {
 		files: [
-			'assets/scss/**/*.scss'
+			'source/scss/**/*.scss'
 		],
 		tasks: [
 			"development"
