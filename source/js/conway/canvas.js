@@ -188,8 +188,8 @@
 
 			var get_columns = function(){
 
-        main.offsetLeft = $('header.page .col-md-8').offset().left;
-        main.width = $('header.page .col-md-8').width() + parseInt($('header.page .col-md-8').css('padding-left'), 10) + parseInt($('header.page .col-md-8').css('padding-right'), 10);
+        main.offsetLeft = $('header.page .row').offset().left;
+        main.width = parseInt($('header.page .col-md-4').css('margin-left'), 10)
 
         aside.offsetLeft = $('header.page .col-md-4').offset().left;
         aside.width = $('header.page .col-md-4').width() + parseInt($('header.page .col-md-4').css('padding-left'), 10) + parseInt($('header.page .col-md-4').css('padding-right'), 10);
