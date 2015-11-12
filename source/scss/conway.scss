@@ -14,58 +14,33 @@ body {
     background: $grey;
 }
 
-#conway{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-    height: 200px;
-}
-#conway.invisible {
-    position: absolute;
-    left:0px;
-}
-
 .wrap {
     position: relative;
     z-index: 1;
     background: $grey;
 }
 .wrap .row{
-    background:mix($grey, #fff, 60%);;
+    background:mix($grey, #fff, 60%);
 }
 main{
-    background:mix($grey, #fff, 80%);;
-}
-aside{
-    background:mix($grey, #fff, 60%);;
+    background:mix($grey, #fff, 80%);
 }
 
-
-
-.me{
-  position:relative;
-  top:100px;
-  img{
-    position:absolute;
-    top:-70px;
-    left:10px;
+img.me{
     width:100px;
     height:100px;
     border: 3px solid rgba(215, 215, 215, 0.7);
     box-shadow: 0 0 1px 1px #807c8e;
     border-radius:50px;
-
     transform: translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     backface-visibility: hidden;
-  }
-  img:hover{
+}
+img.me:hover{
     animation-name: buzz;
     animation-duration: 0.75s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-  }
 }
 
 .pager li > a, .pager li > span{

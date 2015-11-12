@@ -5,6 +5,10 @@ footer.page{
     
     .row{  
         height:55px;
+        background:mix($lila, #fff, 60%);
+    }
+    .col-md-8{  
+        height:55px;
         background:mix($lila, #fff, 80%);
     }
 }

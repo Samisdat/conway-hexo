@@ -1,29 +1,13 @@
 <footer class="page">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 ">
+            <div class="col-md-8">
                 <i class="fa fa-creative-commons"></i> <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
                 Just a bunch of files powered by <a href="http://hexo.io/" target="_blank">hexo</a>
             </div>            
         </div>  
     </div>
 </footer>
-
-<% if (config.disqus_shortname){ %>
-<script>
-  var disqus_shortname = '<%= config.disqus_shortname %>';
-  <% if (page.permalink){ %>
-  var disqus_url = '<%= page.permalink %>';
-  <% } %>
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-<% } %>
 
 <script>
     var Samisdat = {};
