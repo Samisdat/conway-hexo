@@ -46,3 +46,47 @@ img.me:hover{
 .pager li > a, .pager li > span{
   border-radius:0px;
 }
+
+aside ul{
+    border:1px solid red;
+}
+aside ul, aside li{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+aside ul span{
+    display: none;
+}
+
+$duration: 1s;
+
+aside ul{
+    width:20px;
+    height:100px;
+    transition: all $duration ease-in-out;    
+    background: blue;
+    position:relative;
+    left:50%;
+    margin-left:-10px;
+    transform: rotate(-90deg);    
+}
+
+aside ul:hover{
+    left:0%;
+    margin-left:0px;
+    transform: rotate(0deg);    
+}
+
+aside ul i{
+    transition: all $duration ease-in-out;    
+    background:red;
+    width:20px;
+    height:20px;
+    text-align: center;
+    line-height: 20px;
+    transform: rotate(90deg);    
+}
+aside ul:hover i{
+    transform: rotate(0deg);    
+}
