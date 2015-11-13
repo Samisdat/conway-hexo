@@ -1,16 +1,13 @@
 <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>">
+    <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+        <%= date(post.date, null) %>
+    </time>
     <h1>
         <a href="<%- url_for(post.path) %>">
             <%- post.title %>
         </a>
-    </h1>
-        <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
-            <%= date(post.date, null) %>
-        </time>
-        
-    <div class="article-entry" itemprop="articleBody">
-        <%- post.content %>
-    </div>
+    </h1>        
+    <%- post.content %>
   
 
 </article>
