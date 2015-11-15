@@ -1,48 +1,49 @@
 /*jslint browser: true, white: true, vars: true */
 /*global jQuery, Samisdat */
+
+'use strict';
+
 (function($) {
 
-    'use strict';
-
     Samisdat.Conway.Canvas = ( function() {
-        var animation_paused = false;
+        var animationPaused = false;
 
         var $canvas;
 
         var canvas = {
-            ctx : undefined,
-            width : 0,
-            height : 0,
+            ctx: undefined,
+            width: 0,
+            height: 0,
         };
 
         var offset = {
-            x : 0,
-            y : 0
+            x: 0,
+            y: 0
         };
 
         var cell = {
-            width : 8,
-            spacing : 0
+            width: 8,
+            spacing: 0
         };
 
         var visibile = {
-            rows : undefined,
-            collums : undefined
+            rows: undefined,
+            collums: undefined
         };
 
         var main = {
-            offsetLeft:undefined,
-            width:undefined
+            offsetLeft: undefined,
+            width: undefined
         };
 
         var aside = {
-            offsetLeft:undefined,
-            width:undefined
+            offsetLeft: undefined,
+            width: undefined
         };
 
         var render = function() {
-        
-            var population_pos = {
+
+            var populationPos = {
                 top: Math.floor(visibile.rows / 2),
                 left: Math.floor(visibile.collums / 2)
             };
@@ -63,23 +64,23 @@
 
                     var color = '#ffffff';
 
-                    var _cell = Samisdat.Conway.Population.get_cell(
-                        ( row - population_pos.top ),
-                        ( column - population_pos.left )
+                    var actualCell = Samisdat.Conway.Population.get_cell(
+                        ( row - populationPos.top ),
+                        ( column - populationPos.left )
                     );
-                    
-                    if(_cell === undefined || _cell.live() === false){
+
+                    if(undefined === actualCell || false === actualCell.live()){
                         continue;
-                        
-                        if( (column - population_pos.left) === 0 ){
+
+                        if( 0 === (column - populationPos.left) ){
                             color = '#ff0000';
                         }
                         else{
                             continue;
                         }
                     }
-                    
-                    if(_cell !== undefined && _cell.live() === true){
+
+                    if(undefined !== actualCell && true === actualCell.live()){
                         color = '#8c9568';
                     }
 
@@ -88,33 +89,33 @@
                 }
             }
         };
-        
-        var last_hash = '';
-        
-        var something_to_render = function(){
+
+        var lastHash = '';
+
+        var somethingToRender = function(){
             var hash = {
-                generation:Samisdat.Conway.Generation.get()
+                generation: Samisdat.Conway.Generation.get()
             };
 
             hash = JSON.stringify(hash);
 
-            if(hash === last_hash){
+            if(hash === lastHash){
                 console.log('nothing changed');
                 return false;
             }
 
-            hash = last_hash;
+            hash = lastHash;
             return true;
         };
-            
+
         var loop = function() {
-            var animate = something_to_render();
-            
-            if(animate === true){
+            var animate = somethingToRender();
+
+            if(true === animate){
                 render();
             }
 
-            if(animation_paused === true){
+            if(true === animationPaused ){
                 return;
             }
 
@@ -122,16 +123,16 @@
         };
 
         $('#conway').on('invisible', function(evt, data){
-            if(data.invisible === undefined){
+            if(undefined === data.invisible){
                 return;
             }
 
-            if(data.invisible === true){
-                animation_paused = true;
+            if(true === data.invisible){
+                animationPaused = true;
                 return;
             }
-            else if(data.invisible === false){
-                animation_paused = false;
+            else if(false === data.invisible){
+                animationPaused = false;
                 loop();
                 return;
             }
@@ -141,73 +142,73 @@
          * Everything dealing with width/height in a function
          */
 
-         var prepare_observation = function() {
-                canvas.width = $canvas.width();
-                canvas.height = $canvas.height();
+        var prepareObservation = function() {
+            canvas.width = $canvas.width();
+            canvas.height = $canvas.height();
 
-                // canvas is getting blury when these stunts are left
-                $canvas.find('canvas').css({
-                    width : canvas.width + 'px',
-                    height : canvas.height + 'px'
-                });
-                
-                canvas.ctx.canvas.width = canvas.width;
-                canvas.ctx.canvas.height = canvas.height;
-                canvas.ctx.width = canvas.width;
-                canvas.ctx.height = canvas.height;
+            // canvas is getting blury when these stunts are left
+            $canvas.find('canvas').css({
+                width: canvas.width + 'px',
+                height: canvas.height + 'px'
+            });
 
-                // how many rows/col can be shown in given space
-                visibile.rows = Math.floor((canvas.height - cell.spacing) / (cell.width + cell.spacing));
-                visibile.collums = Math.floor((canvas.width - cell.spacing) / (cell.width + cell.spacing));
+            canvas.ctx.canvas.width = canvas.width;
+            canvas.ctx.canvas.height = canvas.height;
+            canvas.ctx.width = canvas.width;
+            canvas.ctx.height = canvas.height;
 
-                // add two so we get cutted cells on all sides
-                visibile.rows += 2;
-                visibile.collums += 2;
+            // how many rows/col can be shown in given space
+            visibile.rows = Math.floor((canvas.height - cell.spacing) / (cell.width + cell.spacing));
+            visibile.collums = Math.floor((canvas.width - cell.spacing) / (cell.width + cell.spacing));
 
-                offset.x = canvas.width - (visibile.collums * (cell.width + cell.spacing) + cell.spacing);
-                offset.x = Math.floor(offset.x / 2);
+            // add two so we get cutted cells on all sides
+            visibile.rows += 2;
+            visibile.collums += 2;
 
-                offset.y = canvas.height - (visibile.rows * (cell.width + cell.spacing) + cell.spacing);
-                offset.y = Math.floor(offset.y / 2);
-            };
+            offset.x = canvas.width - (visibile.collums * (cell.width + cell.spacing) + cell.spacing);
+            offset.x = Math.floor(offset.x / 2);
 
-            var setup_canvas = function() {
-                $canvas = $('div#conway');
-                if ($canvas.get(0) === undefined) {
-                    return false;
-                }
+            offset.y = canvas.height - (visibile.rows * (cell.width + cell.spacing) + cell.spacing);
+            offset.y = Math.floor(offset.y / 2);
+        };
 
-                canvas.ctx = $canvas.find('canvas').get(0).getContext('2d');
+        var setupCanvas = function() {
+            $canvas = $('div#conway');
+            if ($canvas.get(0) === undefined) {
+                return false;
+            }
 
-                if (!canvas.ctx) {
-                    return false;
-                }
+            canvas.ctx = $canvas.find('canvas').get(0).getContext('2d');
 
-                canvas.ctx.fillStyle = '#000000';
-                canvas.ctx.strokeStyle = '#000000';
-                canvas.ctx.lineWidth = 1;
+            if (!canvas.ctx) {
+                return false;
+            }
 
-            };
+            canvas.ctx.fillStyle = '#000000';
+            canvas.ctx.strokeStyle = '#000000';
+            canvas.ctx.lineWidth = 1;
 
-            var get_columns = function(){
+        };
 
-                main.offsetLeft = $('header .row').offset().left;
-                main.width = parseInt($('header .col-md-4').css('margin-left'), 10);
-                aside.offsetLeft = $('header .col-md-4').offset().left;
-                aside.width = $('header .col-md-4').width() + parseInt($('header .col-md-4').css('padding-left'), 10) + parseInt($('header .col-md-4').css('padding-right'), 10);
-            };
+        var getColumns = function(){
 
-            var ready = function() {
-                get_columns();
-                $(window).resize(get_columns);
+            main.offsetLeft = $('header .row').offset().left;
+            main.width = parseInt($('header .col-md-4').css('margin-left'), 10);
+            aside.offsetLeft = $('header .col-md-4').offset().left;
+            aside.width = $('header .col-md-4').width() + parseInt($('header .col-md-4').css('padding-left'), 10) + parseInt($('header .col-md-4').css('padding-right'), 10);
+        };
 
-                setup_canvas();
-                prepare_observation();
+        var ready = function() {
+            getColumns();
+            $(window).resize(getColumns);
 
-                loop();
-            };
+            setupCanvas();
+            prepareObservation();
 
-            $(document).ready(ready);
+            loop();
+        };
+
+        $(document).ready(ready);
     }());
 
 })(jQuery);
