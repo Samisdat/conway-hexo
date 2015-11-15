@@ -190,10 +190,10 @@
 
         main.offsetLeft = $('header .row').offset().left;
         main.width = parseInt($('header .col-md-4').css('margin-left'), 10)
-
+console.log(main.width);
         aside.offsetLeft = $('header .col-md-4').offset().left;
-        aside.width = $('header .col-md-4').width() + parseInt($('header.page .col-md-4').css('padding-left'), 10) + parseInt($('header.page .col-md-4').css('padding-right'), 10);
-
+        aside.width = $('header .col-md-4').width() + parseInt($('header .col-md-4').css('padding-left'), 10) + parseInt($('header .col-md-4').css('padding-right'), 10);
+console.log(aside)
 			};
 
 			var ready = function() {
