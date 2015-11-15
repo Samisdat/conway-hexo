@@ -25,6 +25,7 @@ body {
 }
 main{
     background:mix($grey, #fff, 80%);
+    padding-top:$grid-gutter-width/2;
 }
 
 img.me{

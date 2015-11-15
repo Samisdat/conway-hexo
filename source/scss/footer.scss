@@ -1,15 +1,14 @@
 footer{
-    
+    font-size:16px;
     width:100%;
-    height:55px;
     background:$lila;
     
     .row{  
-        height:55px;
         background:mix($lila, #fff, 60%);
     }
     .col-md-8{  
-        height:55px;
+        padding-top:($grid-gutter-width/2);
+        padding-bottom:($grid-gutter-width/2);    
         background:mix($lila, #fff, 80%);
     }
 }
