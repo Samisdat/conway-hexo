@@ -49,3 +49,12 @@ img.me:hover{
   border-radius:0px;
 }
 
+main h1{
+    margin-top:($grid-gutter-width/2);
+}
+
+main time{
+    display: block;
+    text-align: right;
+}
+
