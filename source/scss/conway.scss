@@ -7,12 +7,14 @@ $grey: #D7D7D7;
 @import "animation";
 
 @import "header";
+@import "main";
 @import "aside";
 @import "footer";
 
 body {
     margin: 0;
     background: $grey;
+    text-transform: lowercase;
 }
 
 .wrap {
@@ -44,17 +46,3 @@ img.me:hover{
     animation-timing-function: linear;
     animation-iteration-count: 1;
 }
-
-.pager li > a, .pager li > span{
-  border-radius:0px;
-}
-
-main h1{
-    margin-top:($grid-gutter-width/2);
-}
-
-main time{
-    display: block;
-    text-align: right;
-}
-

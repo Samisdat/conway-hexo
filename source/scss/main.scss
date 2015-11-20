@@ -1,0 +1,30 @@
+.pager li > a, .pager li > span{
+  border-radius:0px;
+}
+
+main{
+    article{
+            padding-bottom: ($grid-gutter-width/2);
+    }
+
+    h1{
+        margin-top:($grid-gutter-width/2);
+    
+        a, a:hover{
+            color:#333333;
+        }
+    }
+
+    time{
+        display: block;
+        text-align: right;
+    }
+    
+    code{
+        display: block;
+        overflow-x: auto;
+        padding: 0.5em;
+        color: #333;
+        background: #f8f8f8;
+    }
+}
