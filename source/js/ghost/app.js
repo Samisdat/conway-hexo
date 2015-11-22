@@ -30,7 +30,7 @@
 	}());
 
 	Samisdat.CodeHighLight = ( function() {
-        console.log(hljs)
+
 		var ready = function() {
             $('pre code').each(function(i, block) {
                 hljs.highlightBlock(block);
