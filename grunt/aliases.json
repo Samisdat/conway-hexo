@@ -18,7 +18,7 @@
       "sass:production"
     ]
   },
-  "run": {
+  "frontend": {
     "description": "Compile sass when changes and push to client",
     "tasks": [
       "development",
