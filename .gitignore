@@ -2,4 +2,3 @@ node_modules/
 source/bower_components/*
 ._*
 .DS_Store
-source/css/*
