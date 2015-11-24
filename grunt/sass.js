@@ -15,7 +15,7 @@ var sass = {
             outputStyle:'compressed'
         },
         files: {
-          'source/css/<%= pkg.name %>.min.css' : 'dependencies/scss/<%= pkg.name %>.min.scss',
+          'source/css/<%= pkg.name %>.min.css' : 'dependencies/scss/<%= pkg.name %>.scss',
         }
     }
 };
