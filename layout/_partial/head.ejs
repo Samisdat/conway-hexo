@@ -30,5 +30,9 @@
   <% } %>
   <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:400,500,700' rel='stylesheet' type='text/css'>
   <%- css('bower_components/highlightjs/github.css') %>
-  <%- css('css/conway.css') %>
+  <% if (true === is_staging('development')){ %>
+        <%- css('css/conway.css') %>
+  <% } else { %>        
+        <%- css('css/conway.min.css') %>
+  <% } %>
 </head>
