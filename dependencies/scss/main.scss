@@ -28,4 +28,24 @@ main{
         background: #f8f8f8;
         font-family: 'Source Code Pro', monospace;
     }
+    .img{
+        margin-bottom: $grid-gutter-width;
+        &.right{
+            float: right;
+            margin-left: $grid-gutter-width;
+        }
+        &.left{
+            float: right;
+            margin-right: $grid-gutter-width;
+        }
+        &.half{
+            width: 50%;
+        }
+        &.third{
+            width: 33%;
+        }
+        img{
+            width: 100%;
+        }   
+    }
 }
