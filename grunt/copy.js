@@ -26,12 +26,18 @@ var copy = {
         expand: true,
         src: [
             'dependencies/bower_components/highlightjs/highlight.pack.min.js',
-            'dependencies/bower_components/highlightjs/styles/github.css' 
         ],
         dest: 'source/bower_components/highlightjs/',
         flatten: true,
         filter: 'isFile'
-    }    
+    },
+    highlighjs_css: {
+        src: [
+            'dependencies/bower_components/highlightjs/styles/github.css' 
+        ],
+        dest: 'dependencies/scss/highlightjs.scss',
+        filter: 'isFile'
+    }
  
 };
 
