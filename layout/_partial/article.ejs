@@ -6,8 +6,10 @@
         <a href="<%- url_for(post.path) %>">
             <%- post.title %>
         </a>
-    </h1>        
-    <%- post.content %>
-  
-
+    </h1>
+    <% if(true === is_post()){ %>
+        <%- post.content %>
+    <% } else { %>        
+        <%- post.teaser %>
+    <% } %>
 </article>
